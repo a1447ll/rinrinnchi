@@ -1,0 +1,9 @@
+<h1>User List</h1>
+
+<% @users.each do |user| %>
+
+    <%= user.username %>
+    <%= user.email %>
+    <%= '(admin)' if user.admin%>
+
+<% end %>
