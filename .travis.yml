@@ -1,12 +1,18 @@
 language: ruby
 rvm:
 - 2.2.2
-
 before_install:
 - gem update --system
 - gem --version
-
 script:
-- bundle exec rake db:migrate db:drop db:seed
+- bundle exec rake db:migrate
 - bundle exec rake
-
+deploy:
+  provider: heroku
+  api_key:
+    secure: ZmwyyswfbrxorBNVb26mA5bXjAW9cMVugfBSmtPUC597vNppLVJlNwYZbKVnpZYOnBteKPA40/s0CwWoRUXrRqgxgkFWHIGvUcFTWysE4QqM5Epr8QlG4bh30js2Vy5+y4Y6nmessDPfXSnf4RJiKo37a2IXMfdtZe4oX6TI50ESG2nxWgdRSuS95E16FPBkszm4/5jy+CM6gZCUczJCjYphRI77lgEYZtI0RyWg/wk/PLWIEfhCt60euRaasarUOKHi7JLr/IgvODGBWQJkI4Rz9e6St4A+tUBfBUSpr2Z/m3w6vxchP6rM76o++9QvXzdPcfEQjhzczacKz+NjZ8svbtZuWQpmI9gOYo9g6My57TULoVH0K4h7NjeHq8Qh4g5F7NvJdonox6NUkaDRZL/rROWdfZr0JDEhxZfbFgQVIoMYQAWsA9g8QYcJsVQKy/0avGJspAnqDjiLROQvSD1wA6O9mJPfSow2eTFwblqNZ0JZw0b/N1VWDbUD+bB+/jN9GZ4JSCF0jLBGD+fRdfpJxPu+eGL5V7S3Y2X+JFLaGS349G+jCBccJ5d/J6Wc5XgTeij89UkVzL8JpmrT2cqhloQaHtQozuKsMC/qNYBtO1+I9FlKrsEpOrqosuykSj1lSLAS9xdfPpDgicq5W0lm4lfG3VtI+Uv5KyQdJJc=
+  app: rinrinnchi
+  on:
+    repo: a1447ll/rinrinnchi
+  run:
+  - rake db:migrate
