@@ -1,0 +1,20 @@
+<h2><%= @category.name %></h2>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
+
+  <% @items.each do |i| %>
+    <tr>
+        <td><%= i.name %></td>
+        <td><%= i.price %></td>
+        <td><%= link_to "Show", category_item_path(@category, i) %></td>
+        <td><%= link_to "Delete", category_item_path(@category, i), :confirm => 'Are you sure?', :method => :delete %></td>
+
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "New item", new_category_item_path(@category) %>

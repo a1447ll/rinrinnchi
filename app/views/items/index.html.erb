@@ -1,27 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h1>Item list</h1>
+<% @items.each do |i| %>
+    <h2>Name: </h2><%= i.name %><br>
+    <%= image_tag i.image %><br>
+    <h2>Category: </h2><%= i.category.name %><br>
+    <h2>Description: </h2><%= i.description %><br>
+    <h2>Price: </h2><%= i.price %><br>
 
-<h1>Listing Items</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.id %></td>
-        <td><%= item.name %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Item', new_item_path %>
+<% end %>
