@@ -1,5 +1,9 @@
-<h1>New Category</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', categories_path %>
+<%= form_for(@category) do |f| %>
+    <div class="field">
+      <%= f.label :category_name %><br>
+      <%= f.text_area :name %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Create" %>
+    </div>
+<% end %>
